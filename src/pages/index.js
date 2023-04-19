@@ -7,13 +7,14 @@ import { createPathHelper } from "positic";
 import {
   differenceInMilliseconds,
   formatDistance,
-  formatDuration,
   intervalToDuration,
 } from "date-fns";
 import detectPeaks from "../helpers/peak";
 import useInterval from "@/hooks/useInterval";
 import { useState } from "react";
 import styled from "styled-components";
+
+import useStore from "@/store/store";
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps() {
@@ -370,8 +371,10 @@ const Main = styled.div`
 `;
 
 export default function Home({ checkpoints }) {
-  const [countdown, setCountdown] = useState("");
-  const [isPaused, setPaused] = useState(false);
+  const [isPaused, _] = useState(false);
+
+  const countdown = useStore((state) => state.countdown);
+  const setCountdown = useStore((state) => state.setCountdown);
 
   const intervalRef = useInterval(
     () => {
@@ -380,14 +383,15 @@ export default function Home({ checkpoints }) {
         end: new Date(),
       });
 
-      setCountdown(
-        formatDuration(duration, {
-          delimiter: " - ",
-        })
-      );
+      setCountdown(duration);
     },
     isPaused ? null : 1000
   );
 
-  return <Main>{countdown}</Main>;
+  return (
+    <Main>
+      <title>breaking 1000</title>
+      {`${countdown.months} months ${countdown.days} days ${countdown.hours} hours ${countdown.minutes} minutes`}
+    </Main>
+  );
 }
