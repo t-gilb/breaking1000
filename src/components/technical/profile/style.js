@@ -13,7 +13,7 @@ const style = (Component) => styled(Component)`
 
   .sections-container {
     position: absolute;
-    height: 50%;
+    height: 60%;
     bottom: 0;
     top: 0;
     width: 100vw;
