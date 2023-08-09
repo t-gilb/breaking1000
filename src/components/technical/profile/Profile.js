@@ -142,7 +142,7 @@ const Profile = ({
 
     const y = createYScale(
       { min: domain.y.min - offsetMin, max: domain.y.max + offsetMax },
-      { min: 0, max: height / 2 }
+      { min: 0, max: height * 0.4 }
     );
 
     setScales({ x, y });
@@ -163,14 +163,11 @@ const Profile = ({
           />
         ))}
       </div>
-      <div
-        className={"svg-container"}
-        style={{ width, height: (height * 1) / 2 }}
-      >
+      <div className={"svg-container"} style={{ width, height: height * 0.4 }}>
         <svg
-          height={height / 2}
+          height={height * 0.4}
           width={width * 2.5}
-          viewBox={`0 0 ${width * 2.5} ${height / 2}`}
+          viewBox={`0 0 ${width * 2.5} ${height * 0.4}`}
         >
           <Gradient
             from={"#a0dcfd"}

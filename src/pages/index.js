@@ -447,10 +447,10 @@ export default function Home({
             camera={{ fov: 50 }}
           >
             <Suspense fallback={null}>
-              <EffectComposer>
-                <Pixelation granularity={8} />
+              {/*  <EffectComposer>
+                <Pixelation granularity={2} />
                 <Glitch />
-              </EffectComposer>
+              </EffectComposer>*/}
 
               <Float>
                 <Model scroll={scroll} />

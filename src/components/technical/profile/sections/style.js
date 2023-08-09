@@ -33,7 +33,7 @@ const style = (Component) => styled(Component)`
       //flex: 1 1 auto;
       height: 100%;
       width: 70%;
-      font-family: "Roboto Light";
+      font-family: "Helvetica Neue";
 
       flex-direction: column;
       align-items: flex-start;
@@ -43,7 +43,7 @@ const style = (Component) => styled(Component)`
         color: var(--syntax-del);
         font-weight: 900;
         font-size: 1.1rem;
-        padding-bottom: 6px;
+        padding-bottom: 2px;
       }
 
       .type {
