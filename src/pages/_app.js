@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import THEME from "../theme/theme";
 import { ThemeProvider } from "../components";
 
-const setDefaultColors = (variant = "light") => {
+const setDefaultColors = (variant = "dark") => {
   return Object.entries(THEME.colors[variant]).reduce((accu, [rule, value]) => {
     return `${rule}:${value}; ${accu}`;
   }, "");
@@ -19,6 +19,11 @@ const setFonts = () => {
 
 const GlobalStyle = createGlobalStyle`
   body {
+    position: fixed;
+    overflow: hidden;
+    overscroll-behavior-y: none;
+    background-color: #101010;
+    background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
    
     margin: 0;
     font-family: "Open Sans", sans-serif;
@@ -45,8 +50,10 @@ const GlobalStyle = createGlobalStyle`
     div#__next,
     div#__next > div {
       height:100vh;
-      background-color: var(--color-background);
+      background-color: #101010;
+      background: radial-gradient(circle at bottom center, #212121 0%, #101010 80%);
     }
+
   }
 
 
@@ -54,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
   :root{
     ${setDefaultColors()};
     ${setFonts()};
+  
   }
 
 `;

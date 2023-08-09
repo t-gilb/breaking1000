@@ -10,11 +10,21 @@ import {
   intervalToDuration,
 } from "date-fns";
 import detectPeaks from "../helpers/peak";
-import useInterval from "@/hooks/useInterval";
-import { useState } from "react";
-import styled from "styled-components";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 import useStore from "@/store/store";
+import { AutoSizer } from "react-virtualized";
+import { Container, Model, Overlay } from "@/components";
+import smooth from "array-smooth";
+import { Canvas } from "@react-three/fiber";
+import {
+  EffectComposer,
+  Glitch,
+  Pixelation,
+} from "@react-three/postprocessing";
+import { Float } from "@react-three/drei";
+import useInterval from "@/hooks/useInterval";
+import * as d3Array from "d3-array";
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps() {
@@ -346,12 +356,17 @@ export async function getStaticProps() {
     toKm: stage.toKm,
   }));
 
+  const elevations = coordinates
+    .map((coordinate) => coordinate[2])
+    .filter((_, index) => index % 2 !== 0);
+  const smoothedElevations = smooth(elevations, 3);
+
   return {
     // Passed to the page component as props
     props: {
       stages: sumUp,
       route: geojson,
-      coordinates,
+      coordinates, //: smoothedElevations,
       checkpoints,
       distance,
       elevation,
@@ -364,17 +379,34 @@ export async function getStaticProps() {
   };
 }
 
-const Main = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export default function Home({ checkpoints }) {
+export default function Home({
+  checkpoints,
+  distance,
+  elevation,
+  sections,
+  stages,
+  coordinates,
+  locationsIndices,
+  peaks,
+}) {
   const [isPaused, _] = useState(false);
 
-  const countdown = useStore((state) => state.countdown);
   const setCountdown = useStore((state) => state.setCountdown);
+  const setDomain = useStore((state) => state.setDomain);
+
+  const overlay = useRef();
+  const caption = useRef();
+  const container = useRef();
+  const scroll = useRef(0);
+
+  useEffect(() => {
+    const duration = intervalToDuration({
+      start: new Date(checkpoints[0].cutOffTime.replace(/-/g, "/")),
+      end: new Date(),
+    });
+
+    setCountdown(duration);
+  }, []);
 
   const intervalRef = useInterval(
     () => {
@@ -385,13 +417,62 @@ export default function Home({ checkpoints }) {
 
       setCountdown(duration);
     },
-    isPaused ? null : 1000
+    isPaused ? null : 10000
   );
 
+  useEffect(() => {
+    if (!coordinates) return;
+    const altitudes = coordinates.map((item) => item[2]);
+    const extentY = d3Array.extent(altitudes);
+
+    //const lowerFullHundred = Math.floor(extentY[0] / 100) * 100;
+    setDomain({
+      x: { min: 0, max: coordinates.length },
+      y: { min: 0, max: extentY[1] * 1.2 },
+    });
+
+    console.log("set domain");
+  }, [coordinates]);
+
   return (
-    <Main>
-      <title>breaking 1000</title>
-      {`${countdown.months} months ${countdown.days} days ${countdown.hours} hours ${countdown.minutes} minutes`}
-    </Main>
+    <Container ref={container}>
+      <AutoSizer defaultHeight={200} defaultWidth={200}>
+        {({ width, height }) => (
+          <Canvas
+            eventPrefix="client"
+            eventSource={container}
+            shadows
+            style={{ width, height }}
+            dpr={[1, 2]}
+            camera={{ fov: 50 }}
+          >
+            <Suspense fallback={null}>
+              <EffectComposer>
+                <Pixelation granularity={8} />
+                <Glitch />
+              </EffectComposer>
+
+              <Float>
+                <Model scroll={scroll} />
+              </Float>
+            </Suspense>
+          </Canvas>
+        )}
+      </AutoSizer>
+      <Overlay
+        distance={distance}
+        elevation={elevation}
+        sections={sections}
+        stages={stages}
+        coordinates={coordinates}
+        ref={overlay}
+        caption={caption}
+        scroll={scroll}
+        container={container}
+        checkpoints={checkpoints}
+        locationsIndices={locationsIndices}
+        peaks={peaks}
+      />
+    </Container>
   );
 }
