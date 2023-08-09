@@ -1,0 +1,11 @@
+Model Information:
+* title:	Salomon speed cross pro by DigitWorlds.com
+* source:	https://sketchfab.com/3d-models/salomon-speed-cross-pro-by-digitworldscom-05049ce041f141e1977f0fb070be5dc8
+* author:	Przemek Gesicki - DigitWorlds (https://sketchfab.com/DigitWorlds)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Salomon speed cross pro by DigitWorlds.com" (https://sketchfab.com/3d-models/salomon-speed-cross-pro-by-digitworldscom-05049ce041f141e1977f0fb070be5dc8) by Przemek Gesicki - DigitWorlds (https://sketchfab.com/DigitWorlds) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
