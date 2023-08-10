@@ -4,7 +4,7 @@ const style = (Component) => styled(Component)`
   position: relative;
   background-color: ${(props) => props.bgColor};
   border-radius: 8px;
-  font-family: "Roboto Light";
+  font-family: "Helvetica Neue";
 
   title {
   }
