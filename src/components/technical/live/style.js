@@ -109,7 +109,7 @@ const style = (Component) => styled(Component)`
           font-weight: bolder;
           font-size: 1.2rem;
           margin-bottom: 0.2rem;
-          font-family: "Love Ya Like A Sister", cursive;
+          font-family: "Helvetica Neue";
         }
 
         .step {
