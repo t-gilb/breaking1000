@@ -12,6 +12,10 @@ const style = (Component) => styled(Component)`
   }
 
   .sections-container {
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
     position: absolute;
     height: 60%;
     bottom: 0;
@@ -25,6 +29,10 @@ const style = (Component) => styled(Component)`
   }
 
   .svg-container {
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
     position: absolute;
     bottom: 0;
     left: 0;

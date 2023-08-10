@@ -30,6 +30,7 @@ const Overlay = forwardRef(
 
     return (
       <div
+        id={"toto"}
         ref={ref}
         onScroll={(e) => {
           scroll.current =
@@ -38,7 +39,7 @@ const Overlay = forwardRef(
         }}
         className={className}
       >
-        <div style={{ height: "400vh" }}>
+        <div style={{ height: "300vh" }}>
           <div className="dot">
             <h1>GRP 160 preview</h1>
             <div
@@ -117,7 +118,6 @@ const Overlay = forwardRef(
             </div>
           </div>
         </div>
-
         <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>Time table</h1>
@@ -144,7 +144,6 @@ const Overlay = forwardRef(
             </div>
           </div>
         </div>
-
         <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>Credits</h1>

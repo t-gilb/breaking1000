@@ -21,11 +21,11 @@ const style = (Component) => styled(Component)`
       display: grid;
       place-items: center;
       font-weight: bolder;
-      font-size: 4rem;
+      font-size: 2.6rem;
       letter-spacing: -0.05em;
-      min-width: 4rem;
+      min-width: 2rem;
       //flex: 1 1 auto;
-      width: 20%;
+      width: 30%;
     }
 
     .section-data {
