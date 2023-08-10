@@ -39,7 +39,7 @@ const Overlay = forwardRef(
         }}
         className={className}
       >
-        <div style={{ height: "300vh" }}>
+        <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>GRP 160 preview</h1>
             <div
@@ -90,7 +90,7 @@ const Overlay = forwardRef(
             </div>
           </div>
         </div>
-        <div style={{ height: "300vh" }}>
+        <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>Sections</h1>
             <div
