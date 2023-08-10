@@ -11,7 +11,7 @@ export default function Document() {
         <meta name="description" content={APP_DESCRIPTION} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="theme-color" content="#101010" />
         {/* TIP: set viewport head meta tag in _app.js, otherwise it will show a warning */}
         {/*       <meta
           name="viewport"
