@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { formatDistance, format } from "date-fns";
+import { formatDuration, format, intervalToDuration } from "date-fns";
 
 import useIntersect from "../../../../hooks/useIntersect";
 
@@ -79,9 +79,12 @@ const Section = ({
 
           <span className={"type"}>duration</span>
           <span>
-            {formatDistance(0, section.duration, {
+            {formatDuration(
+              intervalToDuration({ start: 0, end: section.duration })
+            )}
+            {/* {formatDistance(0, section.duration, {
               includeSeconds: true,
-            })}
+            })}*/}
           </span>
 
           <span className={"type"}>time barrier</span>

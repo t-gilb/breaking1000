@@ -7,6 +7,8 @@ import { AutoSizer } from "react-virtualized";
 import Stages from "@/components/technical/stages/Stages";
 import { Profile } from "@/components";
 import Live from "@/components/technical/live/Live";
+import Image from "next/image";
+import url from "../../../assets/lybitos.png";
 
 const Overlay = forwardRef(
   (
@@ -155,9 +157,14 @@ const Overlay = forwardRef(
                 padding: "3rem",
               }}
             >
-              Ut Lybitos voluptas sed voluptatum eaque ut neque velit est vitae
-              consequatur aut asperiores esse ultra mollitia baraba qui mierda
-              obcaecati?
+              <Image
+                style={{ marginBottom: "2rem" }}
+                src={url}
+                alt="Picture of the author"
+                width={100}
+                height={100}
+              />
+              <div>Copyright © 2023 Lybitos — All Rights Reserved</div>
             </div>
           </div>
         </div>
