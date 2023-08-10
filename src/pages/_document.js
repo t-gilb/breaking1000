@@ -19,6 +19,15 @@ export default function Document() {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
         />
+        <meta
+          name="viewport"
+          content="initial-scale=1, viewport-fit=cover, width=device-width"
+        ></meta>
+        <meta name="apple-mobile-web-app-capable" content="yes"></meta>
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        ></meta>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
