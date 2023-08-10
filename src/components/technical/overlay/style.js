@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const style = (Component) => styled(Component)`
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
   position: absolute;
   top: 0;
   left: 0;

@@ -15,10 +15,11 @@ export default function Document() {
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#FFFFFF" />
         {/* TIP: set viewport head meta tag in _app.js, otherwise it will show a warning */}
-        <meta
+        {/*       <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-        />
+        />*/}
+
         <meta
           name="viewport"
           content="initial-scale=1, viewport-fit=cover, width=device-width"

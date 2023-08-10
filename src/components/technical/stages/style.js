@@ -5,6 +5,10 @@ const style = (Component) => styled(Component)`
   left: 0;
 
   .stages-container {
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
     position: absolute;
     height: 100%;
     bottom: 0;
