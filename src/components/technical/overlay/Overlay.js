@@ -101,7 +101,7 @@ const Overlay = forwardRef(
                 width: "100%",
                 height: "100%",
                 flex: "1 1 auto",
-                minHeight: "680px",
+                minHeight: "660px",
               }}
             >
               <AutoSizer>
@@ -120,7 +120,7 @@ const Overlay = forwardRef(
             </div>
           </div>
         </div>
-        <div style={{ height: "200vh" }}>
+        {/*  <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>Time table</h1>
             <div
@@ -145,7 +145,7 @@ const Overlay = forwardRef(
               </AutoSizer>
             </div>
           </div>
-        </div>
+        </div>*/}
         <div style={{ height: "200vh" }}>
           <div className="dot">
             <h1>Credits</h1>
